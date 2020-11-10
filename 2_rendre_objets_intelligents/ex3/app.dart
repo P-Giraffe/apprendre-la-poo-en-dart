@@ -13,9 +13,9 @@ void main() {
   var isItPlayerTurn = Random().nextBool();
   do {
     if (isItPlayerTurn) {
-      attackBot(player, b1);
+      player.attackBot(b1);
     } else {
-      attackPlayer(b1, player);
+      b1.attackPlayer(player);
     }
 
     b1.displayYourData();
@@ -37,15 +37,4 @@ int rollDices(String playerName) {
   final randomNumber = generator.nextInt(6) + 1 + generator.nextInt(6) + 1;
   print("$playerName a lancé les dés et a obtenu la valeur $randomNumber");
   return randomNumber;
-}
-
-void attackBot(Player player, Bot bot) {
-  readText("Appuyez sur entrée pour lancer les dés");
-  final dicesValue = rollDices(player.nickname);
-  bot.health = bot.health - dicesValue;
-}
-
-void attackPlayer(Bot bot, Player player) {
-  final dicesValue = rollDices("Le Bot");
-  player.health -= dicesValue;
 }
