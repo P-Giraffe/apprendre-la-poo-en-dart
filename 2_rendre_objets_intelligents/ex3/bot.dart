@@ -11,6 +11,7 @@ class Bot {
 
   void attackPlayer(Player player) {
     final dicesValue = rollDices("Le Bot");
-    player.health -= dicesValue;
+    final hitStrength = dicesValue * strength;
+    player.health -= hitStrength;
   }
 }

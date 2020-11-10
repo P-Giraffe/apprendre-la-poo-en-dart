@@ -14,6 +14,11 @@ class Player {
   void attackBot(Bot bot) {
     readText("Appuyez sur entrée pour lancer les dés");
     final dicesValue = rollDices(this.nickname);
-    bot.health = bot.health - dicesValue;
+    final hitStrength = dicesValue * strength;
+    bot.health = bot.health - hitStrength;
+  }
+
+  void didWin(Bot bot) {
+    this.strength = this.strength + bot.strength;
   }
 }
