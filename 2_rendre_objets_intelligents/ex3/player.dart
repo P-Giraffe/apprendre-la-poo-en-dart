@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'NE_PAS_TOUCHER/user_input.dart';
 import 'app.dart';
 import 'bot.dart';
@@ -22,5 +24,11 @@ class Player {
 
   void didWin(Bot bot) {
     this.strength = this.strength + bot.strength;
+    raiseHealth(1.9);
+  }
+
+  void raiseHealth(double factor) {
+    final gain = this.health * factor;
+    this.health = min(100, this.health + gain.toInt());
   }
 }
