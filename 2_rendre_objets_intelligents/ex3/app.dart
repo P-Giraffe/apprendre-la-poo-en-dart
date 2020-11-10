@@ -9,27 +9,32 @@ void main() {
   final player = Player();
   player.nickname = readText("Entrez votre pseudo :");
   var actionCount = 0;
-  print("Un bot se présente à vous et veut se battre...\n");
-  var isItPlayerTurn = Random().nextBool();
-  do {
-    if (isItPlayerTurn) {
-      player.attackBot(b1);
-    } else {
-      b1.attackPlayer(player);
+  var botCount = 0;
+  while (player.isAlive) {
+    print("Un bot se présente à vous et veut se battre...\n");
+    var isItPlayerTurn = Random().nextBool();
+    do {
+      if (isItPlayerTurn) {
+        player.attackBot(b1);
+      } else {
+        b1.attackPlayer(player);
+      }
+
+      b1.displayYourData();
+      player.displayYourData();
+      actionCount++;
+      print("Fin du tour $actionCount\n");
+      isItPlayerTurn = !isItPlayerTurn;
+    } while (b1.health > 0 && player.isAlive);
+
+    if (player.isAlive) {
+      print("${player.nickname} a vaincu le bot !");
+      player.didWin(b1);
+      botCount++;
     }
-
-    b1.displayYourData();
-    player.displayYourData();
-    actionCount++;
-    print("Fin du tour $actionCount\n");
-    isItPlayerTurn = !isItPlayerTurn;
-  } while (b1.health > 0 && player.health > 0);
-
-  if (player.health > 0) {
-    print("${player.nickname} a vaincu le bot !");
-  } else {
-    print("${player.nickname} a été terrassé par le bot !");
   }
+
+  print("${player.nickname} a vaincu ${botCount} bot(s) avant d'être terrassé");
 }
 
 int rollDices(String playerName) {

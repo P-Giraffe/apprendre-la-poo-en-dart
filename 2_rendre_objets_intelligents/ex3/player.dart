@@ -7,6 +7,8 @@ class Player {
   int strength = 1;
   int health = 100;
 
+  bool get isAlive => health > 0;
+
   void displayYourData() {
     print("${this.nickname} - ${this.health}% - Force : ${this.strength}");
   }
