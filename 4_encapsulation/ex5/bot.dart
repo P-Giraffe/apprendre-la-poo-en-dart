@@ -1,11 +1,18 @@
+import 'dart:math';
 import 'app.dart';
 import 'player.dart';
 
 class Bot {
-  int health = 100;
-  final int strength;
+  int _health = 100;
+  final int _strength;
 
-  Bot(this.strength);
+  Bot(this._strength);
+  int get strength => _strength;
+
+  int get health => _health;
+  set health(int health) {
+    _health = max(0, health);
+  }
 
   void displayYourData() {
     print("Bot - ${health}% - Force : ${strength}");

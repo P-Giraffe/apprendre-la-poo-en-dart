@@ -4,14 +4,7 @@ import 'NE_PAS_TOUCHER/user_input.dart';
 import 'bot.dart';
 import 'player.dart';
 
-ff(int a) {
-  a++;
-}
-
 void main() {
-  var b = 1;
-  ff(b);
-  print(b);
   final nickname = readText("Entrez votre pseudo :");
   final player = Player(nickname);
 
