@@ -18,20 +18,18 @@ class Player {
   }
 
   void attackBot(Bot bot) {
-    int choixUtilisateur = 1;
+    int userChoice = 1;
     if (this.health < 40) {
-      do {
-        print(
-            "${this.nickname}, - ${this.health}%, quelle action souhaitez vous faire :");
-        print("1 - Attaquer le bot");
-        print("2 - Vous reposer pour récupérer de la santé");
-        choixUtilisateur = readInt("Quel est votre choix ?");
-      } while (choixUtilisateur < 1 || choixUtilisateur > 2);
+      userChoice = selectFromMenu(
+          '''${this.nickname}, - ${this.health}%, quelle action souhaitez vous faire :
+        1 - Attaquer le bot
+        2 - Vous reposer pour récupérer de la santé
+      ''', 2);
     } else {
       readText("Appuyez sur entrée pour lancer les dés et attaquer le bot");
     }
 
-    if (choixUtilisateur == 1) {
+    if (userChoice == 1) {
       final dicesValue = rollDices(this.nickname);
       final hitStrength = dicesValue * strength;
       bot.health = bot.health - hitStrength;
