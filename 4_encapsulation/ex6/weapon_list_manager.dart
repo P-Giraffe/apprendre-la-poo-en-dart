@@ -10,7 +10,7 @@ class WeaponListManager {
 
   var _nextWeaponIndex = 0;
 
-  Weapon getWeaponToLoot() {
+  Weapon getNextWeaponToLoot() {
     Weapon nextWeapon;
     if (_nextWeaponIndex < _weaponList.length) {
       nextWeapon = _weaponList[_nextWeaponIndex];
