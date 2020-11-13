@@ -9,7 +9,7 @@ class Player {
   final String _nickname;
   int _strength = 1;
   int _health = 100;
-  Weapon _weapon = const Weapon("Batte de baseball", 1, 50);
+  Weapon _weapon = const Weapon("Batte de baseball", 1, 100);
 
   Player(this._nickname);
 
@@ -64,6 +64,13 @@ class Player {
 
   void didWin(Bot bot) {
     this.strength = this.strength + bot.strength;
+    const newWeapon = Weapon("Fusil à pompe", 2, 75);
+    final pickWeaponChoice = selectFromMenu(
+        "Le bot a laissé tomber une arme (${newWeapon.description}), tapez 1 pour la ramasser ou 2 pour conserver votre arme actuelle (${_weapon.description})",
+        2);
+    if (pickWeaponChoice == 1) {
+      _weapon = newWeapon;
+    }
     raiseHealth(0.9);
   }
 
