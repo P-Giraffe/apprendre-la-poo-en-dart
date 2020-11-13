@@ -9,7 +9,7 @@ class Player {
   final String _nickname;
   int _strength = 1;
   int _health = 100;
-  Weapon _weapon = const Weapon("Batte de baseball", 1, 100);
+  Weapon _weapon = const Weapon("Batte de baseball", 1, 50);
 
   Player(this._nickname);
 
@@ -30,7 +30,7 @@ class Player {
     print("${this.nickname} - ${this.health}% - Force : ${this.strength}");
   }
 
-  void attackBot(Bot bot) {
+  void attackOrRest(Bot bot) {
     int userChoice = 1;
     if (this.health < 40) {
       userChoice = selectFromMenu(
@@ -43,11 +43,22 @@ class Player {
     }
 
     if (userChoice == 1) {
-      final dicesValue = rollDices(this.nickname);
-      final hitStrength = dicesValue * strength;
-      bot.health = bot.health - hitStrength;
+      _attack(bot);
     } else {
       raiseHealth(0.75);
+    }
+  }
+
+  void _attack(Bot bot) {
+    final randomPercent = Random().nextInt(100) + 1;
+    if (randomPercent <= _weapon.accuracy) {
+      final dicesValue = rollDices(this.nickname);
+      final hitStrength = dicesValue * (strength + _weapon.power);
+      print(
+          "$nickname frappe le bot avec l'arme ${_weapon.name} et une force de $hitStrength");
+      bot.health = bot.health - hitStrength;
+    } else {
+      print("$nickname a manqué le bot lors de son coup");
     }
   }
 

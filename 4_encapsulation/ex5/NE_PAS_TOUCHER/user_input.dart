@@ -31,6 +31,7 @@ int selectFromMenu(String message, int max) {
   int userChoice;
   do {
     print(message);
+    userChoice = readInt("Quel est votre choix ?");
     if (userChoice < 1 || userChoice > max) {
       print("Veuillez choisir une valeur comprise entre 1 et $max");
     }

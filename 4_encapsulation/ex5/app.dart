@@ -16,7 +16,7 @@ void main() {
     var isItPlayerTurn = Random().nextBool();
     do {
       if (isItPlayerTurn) {
-        player.attackBot(b1);
+        player.attackOrRest(b1);
       } else {
         b1.attackPlayer(player);
       }
