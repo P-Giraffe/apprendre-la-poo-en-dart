@@ -12,4 +12,10 @@ class Joueur extends Combattant {
     print("$pseudo attaque le bot");
     bot.recevoirCoup(force);
   }
+
+  @override
+  void recevoirCoup(int forceDuCoup) {
+    super.recevoirCoup(forceDuCoup);
+    print("Aie!");
+  }
 }
