@@ -6,8 +6,10 @@ import 'player.dart';
 class Bot extends Fighter {
   Bot(int strength) : super(strength);
 
+  @override
   void displayYourData() {
-    print("Bot - ${health}% - Force : ${strength}");
+    print("\n|------ Bot ------|");
+    super.displayYourData();
   }
 
   void attackPlayer(Player player) {

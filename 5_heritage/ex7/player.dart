@@ -17,8 +17,10 @@ class Player extends Fighter {
   String get nickname => _nickname;
   bool get isAlive => health > 0;
 
+  @override
   void displayYourData() {
-    print("${this.nickname} - ${this.health}% - Force : ${this.strength}");
+    print("\n|------ $nickname ------|");
+    super.displayYourData();
   }
 
   void attackOrRest(Bot bot) {

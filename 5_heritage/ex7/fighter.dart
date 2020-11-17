@@ -18,7 +18,8 @@ class Fighter {
   bool get isAlive => health > 0;
 
   void displayYourData() {
-    print("${health}% - Force : ${strength}");
+    print("| ${health}% - Force : ${strength} |");
+    print("|-----------------|\n");
   }
 
   void raiseHealth(double factor) {
