@@ -4,6 +4,8 @@ class Combattant {
   int _sante = 100;
   int _force;
 
+  Combattant(this._force);
+
   bool get estEnVie => sante > 0;
 
   int get force => _force;

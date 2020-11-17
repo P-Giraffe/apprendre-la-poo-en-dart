@@ -4,7 +4,7 @@ import 'combattant.dart';
 class Joueur extends Combattant {
   final String _pseudo;
 
-  Joueur(this._pseudo);
+  Joueur(this._pseudo) : super(1) {}
 
   String get pseudo => _pseudo;
 
