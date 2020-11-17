@@ -2,10 +2,13 @@ import 'dart:math';
 
 class Fighter {
   int _health = 100;
-  final int _strength;
+  int _strength;
 
   Fighter(this._strength);
   int get strength => _strength;
+  set strength(int strength) {
+    _strength = max(0, strength);
+  }
 
   int get health => _health;
   set health(int health) {

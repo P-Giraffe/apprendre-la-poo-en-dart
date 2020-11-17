@@ -3,30 +3,19 @@ import 'dart:math';
 import 'NE_PAS_TOUCHER/user_input.dart';
 import 'app.dart';
 import 'bot.dart';
+import 'fighter.dart';
 import 'weapon.dart';
 import 'weapon_list_manager.dart';
 
-class Player {
+class Player extends Fighter {
   final String _nickname;
-  int _strength = 1;
-  int _health = 100;
   Weapon _weapon = const Weapon("Batte de baseball", 1, 100);
   final _weaponListManager = WeaponListManager();
 
-  Player(this._nickname);
+  Player(this._nickname) : super(1);
 
   String get nickname => _nickname;
   bool get isAlive => health > 0;
-
-  int get strength => _strength;
-  set strength(int strength) {
-    _strength = max(0, strength);
-  }
-
-  int get health => _health;
-  set health(int health) {
-    _health = max(0, health);
-  }
 
   void displayYourData() {
     print("${this.nickname} - ${this.health}% - Force : ${this.strength}");
@@ -76,10 +65,5 @@ class Player {
       }
     }
     raiseHealth(0.9);
-  }
-
-  void raiseHealth(double factor) {
-    final gain = this.health * factor;
-    this.health = min(100, this.health + gain.toInt());
   }
 }
