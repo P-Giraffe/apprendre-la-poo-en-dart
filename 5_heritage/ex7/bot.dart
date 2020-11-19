@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 import 'app.dart';
 import 'fighter.dart';
@@ -8,7 +9,7 @@ class Bot extends Fighter {
 
   @override
   void displayYourData() {
-    print("\n|------ Bot ------|");
+    print("Bot - ");
     super.displayYourData();
   }
 

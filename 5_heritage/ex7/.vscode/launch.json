@@ -9,7 +9,8 @@
             "request": "launch",
             "type": "dart",
             "program": "app.dart",
-            "console": "terminal"
+            "console": "terminal",
+            "internalConsoleOptions": "openOnSessionStart"
         }
     ]
 }

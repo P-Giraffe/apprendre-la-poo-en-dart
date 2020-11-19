@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'NE_PAS_TOUCHER/user_input.dart';
@@ -15,11 +16,10 @@ class Player extends Fighter {
   Player(this._nickname) : super(1);
 
   String get nickname => _nickname;
-  bool get isAlive => health > 0;
 
   @override
   void displayYourData() {
-    print("\n|------ $nickname ------|");
+    print("${this.nickname} - ");
     super.displayYourData();
   }
 
