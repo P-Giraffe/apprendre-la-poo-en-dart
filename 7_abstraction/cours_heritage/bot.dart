@@ -1,7 +1,11 @@
 import 'combattant.dart';
 import 'joueur.dart';
 
-class Bot extends Combattant {
+abstract class MonProtocole {
+  void fonctionSecrete();
+}
+
+class Bot extends Combattant implements Comparable<Bot>, MonProtocole {
   Bot({int force = 1}) : super(force) {}
 
   void attaquer(Joueur player) {
@@ -12,5 +16,15 @@ class Bot extends Combattant {
   @override
   void afficherInfos() {
     print("Bot - Santé $sante% - Force $force");
+  }
+
+  @override
+  int compareTo(Bot other) {
+    return this.force.compareTo(other.force);
+  }
+
+  @override
+  void fonctionSecrete() {
+    // TODO: implement fonctionSecrete
   }
 }
