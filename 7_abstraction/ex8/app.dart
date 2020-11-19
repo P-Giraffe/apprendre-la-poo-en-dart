@@ -14,8 +14,17 @@ void main() {
       player.prepareForNewGame();
       startFight(player);
       playerList[nickname] = player;
+      displayHallOfFame(playerList.values.toList());
     }
   } while (nickname.isNotEmpty);
+}
+
+void displayHallOfFame(List<Player> playerList) {
+  playerList.sort((a, b) => b.compareTo(a));
+  print("Hall of Fame");
+  for (final player in playerList) {
+    print("${player.nickname} - ${player.score}");
+  }
 }
 
 void startFight(Player player) {

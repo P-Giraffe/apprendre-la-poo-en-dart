@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'NE_PAS_TOUCHER/user_input.dart';
@@ -8,14 +7,22 @@ import 'fighter.dart';
 import 'weapon.dart';
 import 'weapon_list_manager.dart';
 
-class Player extends Fighter {
+class Player extends Fighter implements Comparable<Player> {
   final String _nickname;
+  int _score = 0;
+
   Weapon _weapon = const Weapon("Batte de baseball", 1, 100);
   final _weaponListManager = WeaponListManager();
 
   Player(this._nickname) : super(1);
 
   String get nickname => _nickname;
+
+  int get score => _score;
+
+  set score(int score) {
+    _score = score;
+  }
 
   void prepareForNewGame() {
     this.health = 100;
@@ -61,6 +68,7 @@ class Player extends Fighter {
 
   void didWin(Bot bot) {
     this.strength = this.strength + bot.strength;
+    score += bot.strength * this.health;
     final newWeapon = _weaponListManager.getNextWeaponToLoot();
     if (newWeapon != null) {
       final pickWeaponChoice = selectFromMenu(
@@ -72,4 +80,7 @@ class Player extends Fighter {
     }
     raiseHealth(0.9);
   }
+
+  @override
+  int compareTo(Player other) => this.score.compareTo(other.score);
 }
