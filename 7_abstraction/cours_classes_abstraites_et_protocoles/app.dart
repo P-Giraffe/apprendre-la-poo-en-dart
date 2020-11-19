@@ -10,5 +10,6 @@ void main() {
   groupeDeBot.sort();
   for (var bot in groupeDeBot) {
     bot.afficherInfos();
+    bot.fonctionSecrete();
   }
 }
