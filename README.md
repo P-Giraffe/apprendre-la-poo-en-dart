@@ -8,7 +8,7 @@ Pour réaliser les exercices du cours, un projet pré-configuré pour les exerci
 
 Ce dépôt contient les sources et corrections de tous les exercices et exemples abordés dans le cours.
 Choisissez le dossier correspondant chapitre et vous y trouverez les sources à compiler/exécuter.
-Les sources sont créées en Swift et ont été testées sur Dart 2.10.
+Les sources sont créées en Dart et ont été testées sur Dart 2.10.
 
 ## Le cours
 
