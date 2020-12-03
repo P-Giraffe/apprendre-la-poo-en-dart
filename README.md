@@ -11,9 +11,14 @@ Ce cours fait partie de mes cours en ligne disponibles sur le site de [Purple Gi
 
 Pour réaliser les exercices du cours, un projet pré-configuré pour les exercices est fournis. Vous pouvez le télécharger sur ce dépot.
 
-## Corrections et codes sources
+## Exercices et corrections
 
 Ce dépôt contient les sources et corrections de tous les exercices et exemples abordés dans le cours.
-Choisissez le dossier correspondant chapitre et vous y trouverez les sources à compiler/exécuter.
+**Choisissez le dossier correspondant chapitre** et vous y trouverez :
+
+- les sources pour chaque exemple du cours théorique à compiler/exécuter.
+- les sujets de chaque TP, sous la forme d'un document PDF.
+- les sources de correction de chaque TP/exercice, sous la forme d'un dossier du même nom.
+
 Les sources sont créées en Dart et ont été testées sur Dart 2.10.
 
